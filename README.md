@@ -19,6 +19,7 @@ pola perilaku kolektif pengguna untuk menemukan preferensi tersembunyi. Kombinas
 yang mendalam, meningkatkan user satisfaction hingga 35% dan watch time hingga 40% [3].
 
 Referensi:
+
 [1] F. O. Isinkaye, Y. O. Folajimi, and B. A. Ojokoh, "Recommendation systems: Principles, methods and evaluation," Egyptian Informatics Journal, vol. 16, no. 3, pp. 261–273, Nov. 2015, doi: 10.1016/j.eij.2015.06.005.
 
 [2] C. A. Gomez-Uribe and N. Hunt, "The Netflix Recommender System: Algorithms, Business Value, and Innovation," ACM Transactions on Management Information Systems, vol. 6, no. 4, pp. 1–19, Dec. 2015, doi: 10.1145/2843948.
