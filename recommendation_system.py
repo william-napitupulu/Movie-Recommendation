@@ -277,7 +277,7 @@ if __name__ == "__main__":
         model, history = collaborative_filtering(
             num_users, num_movies, 
             x_train, x_val, y_train, y_val,
-            epochs=5,  # Reduced for faster execution
+            epochs=20,  # Matches notebook configuration
             batch_size=8
         )
         

@@ -350,14 +350,6 @@ Input:
 
 **Top-5 Film Rekomendasi:**
 
-| No | Judul Film | Genre | Similarity Score |
-|----|-----------|-------|------------------|
-| 1 | Toy Story 2 (1999) | Adventure, Animation, Children, Comedy, Fantasy | 1.000 |
-| 2 | Toy Story 3 (2010) | Adventure, Animation, Children, Comedy, Fantasy | 1.000 |
-| 3 | Monsters, Inc. (2001) | Adventure, Animation, Children, Comedy, Fantasy | 0.872 |
-| 4 | Emperor's New Groove, The (2000) | Adventure, Animation, Children, Comedy, Fantasy | 0.872 |
-| 5 | Shrek (2001) | Adventure, Animation, Children, Comedy, Fantasy, Romance | 0.834 |
-
 <img width="592" height="203" alt="image" src="https://github.com/user-attachments/assets/4243c21e-3f19-4246-9e04-220eef968edf" />
 
 **Analisis Hasil:**
@@ -443,39 +435,6 @@ Proyek ini menggunakan **Model-Based Collaborative Filtering** dengan **Neural N
 - Data sparsity: Performa menurun jika terlalu sedikit interaksi
 - Memerlukan computational resources untuk training
 - Kurang interpretable dibanding content-based ("Mengapa film ini direkomendasikan?")
-
-#### Hasil Top-N Rekomendasi Collaborative Filtering
-
-**Test Case: Rekomendasi untuk User 414**
-
-Input - Film yang disukai User 414 (Top-5 rated):
-
-| No | Judul Film | Rating |
-|----|-----------|--------|
-| 1 | Departed, The (2006) | 5.0 |
-| 2 | Dark Knight, The (2008) | 5.0 |
-| 3 | No Country for Old Men (2007) | 5.0 |
-| 4 | Truman Show, The (1998) | 5.0 |
-| 5 | Juno (2007) | 5.0 |
-
-<img width="446" height="189" alt="image" src="https://github.com/user-attachments/assets/4f64c034-8d58-48b2-adab-c162e6778707" />
-
-**Top-10 Film Rekomendasi dari Model:**
-
-| No | Judul Film | Genre | Predicted Rating |
-|----|-----------|-------|------------------|
-| 1 | Blade Runner (1982) | Action, Sci-Fi, Thriller | 4.98 |
-| 2 | Matrix, The (1999) | Action, Sci-Fi, Thriller | 4.96 |
-| 3 | Fight Club (1999) | Action, Crime, Drama, Thriller | 4.95 |
-| 4 | Shawshank Redemption, The (1994) | Crime, Drama | 4.94 |
-| 5 | Forrest Gump (1994) | Comedy, Drama, Romance, War | 4.92 |
-| 6 | Usual Suspects, The (1995) | Crime, Mystery, Thriller | 4.91 |
-| 7 | Pulp Fiction (1994) | Comedy, Crime, Drama, Thriller | 4.90 |
-| 8 | Memento (2000) | Mystery, Thriller | 4.89 |
-| 9 | American Beauty (1999) | Drama, Romance | 4.88 |
-| 10 | Prestige, The (2006) | Drama, Mystery, Sci-Fi, Thriller | 4.87 |
-
-<img width="781" height="145" alt="image" src="https://github.com/user-attachments/assets/07e4f2fa-6f2c-4092-ad99-34158ced408c" />
 
 **Analisis Hasil:**
 - Model berhasil menangkap preferensi user terhadap film-film berkualitas tinggi dengan tema mature dan complex storytelling
@@ -574,21 +533,21 @@ Grafik menunjukkan:
 
 **Final Performance**
 
-- **Training RMSE**: 0.177 (pada normalized scale 0-1)
+- **Training RMSE**: 0.1792 (pada normalized scale 0-1)
   - Equivalent ≈ 0.80 stars error pada original 0.0-5.0 scale
   
-- **Validation RMSE**: 0.195 (pada normalized scale 0-1)
+- **Validation RMSE**: 0.1993 (pada normalized scale 0-1)
   - Equivalent ≈ 0.88 stars error pada original 0.0-5.0 scale
 
 **Interpretasi**:
 - Model dapat memprediksi rating dengan error rata-rata **kurang dari 1 star**
 - Ini adalah hasil yang **acceptable** untuk recommender system
-- **Goal tercapai**: RMSE ≤ 0.20 (actual: 0.195)
+- **Goal tercapai**: RMSE ≤ 0.20 (actual: 0.1993)
 
 **Comparison with Baseline**:
 - Random prediction baseline: RMSE ≈ 1.8
 - Simple mean baseline (prediksi selalu mean rating): RMSE ≈ 1.0
-- Our model: RMSE ≈ 0.195
+- Our model: RMSE ≈ 0.1993
 - **Improvement**: ~80% reduction in error compared to mean baseline
 
 ---
