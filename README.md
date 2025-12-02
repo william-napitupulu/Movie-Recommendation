@@ -129,6 +129,7 @@ Setelah dilakukan pengecekan menggunakan `isnull().sum()`:
    - Contoh: "Adventure|Animation|Children|Comedy|Fantasy"
    - Total 20 genre unik: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, IMAX, Musical, Mystery, Romance, Sci-Fi, Thriller, War, Western, dan "(no genres listed)"
    - Satu film dapat memiliki multiple genres (rata-rata 2.3 genre per film)
+
 <img width="501" height="212" alt="image" src="https://github.com/user-attachments/assets/824a5ae1-bb92-40c0-99ed-53d45e540ee8" />
 
 #### ratings.csv (100,836 baris × 4 kolom)
@@ -474,6 +475,8 @@ Karena tidak ada ground truth explicit untuk "film yang benar-benar mirip," eval
 **Contoh Evaluasi**:
 Input: "Toy Story (1995)" (Genre: Adventure|Animation|Children|Comedy|Fantasy)
 
+<img width="592" height="203" alt="image" src="https://github.com/user-attachments/assets/4243c21e-3f19-4246-9e04-220eef968edf" />
+
 Expected: Film dengan genre Animation, Children, atau Fantasy harus mendominasi Top-5 recommendations.
 
 #### 2. Metrik untuk Collaborative Filtering
@@ -505,8 +508,6 @@ RMSE adalah metrik standar untuk regression tasks, termasuk rating prediction.
 **Test: Toy Story (1995)**
 - Input Genre: Adventure, Animation, Children, Comedy, Fantasy
 - Top-5 Recommendations:
-
-<img width="592" height="203" alt="image" src="https://github.com/user-attachments/assets/4243c21e-3f19-4246-9e04-220eef968edf" />
 
 
 **Analisis**: Semua rekomendasi adalah film animasi untuk anak-anak dengan elemen comedy dan adventure, menunjukkan **highly consistent genre matching**. Precision@5 = 100% (semua rekomendasi relevan).
@@ -554,13 +555,14 @@ Grafik menunjukkan:
 
 #### Collaborative Filtering: Qualitative Results
 
-**Sample Recommendation for User 414**
+**Sample Recommendation for User 199**
 
-Input: User 414 historical ratings (Top 5 movies rated highly):
-<img width="446" height="189" alt="image" src="https://github.com/user-attachments/assets/4f64c034-8d58-48b2-adab-c162e6778707" />
+
 
 **Top-10 Model Recommendations**:
-<img width="781" height="145" alt="image" src="https://github.com/user-attachments/assets/07e4f2fa-6f2c-4092-ad99-34158ced408c" />
+
+<img width="910" height="383" alt="image" src="https://github.com/user-attachments/assets/443dbcf2-e6f8-4589-82a6-671c8d717357" />
+
 
 ---
 
