@@ -273,8 +273,6 @@ Teknik data preparation yang diterapkan berbeda untuk kedua pendekatan modeling:
    
    **Alasan**: Data validation diperlukan untuk monitoring overfitting dan evaluasi performa model pada data yang tidak pernah dilihat saat training.
 
-![Data Preparation Pipeline](data_preparation.png)
-
 ## Modeling
 
 Proyek ini mengimplementasikan dua pendekatan sistem rekomendasi yang berbeda untuk mengakomodasi berbagai kebutuhan pengguna.
@@ -341,6 +339,34 @@ Content-Based Filtering adalah metode rekomendasi yang merekomendasikan item ber
 - Over-specialization: Hanya merekomendasikan film yang sangat mirip, kurang diversity
 - Limited feature scope: Hanya menggunakan genre, tidak mempertimbangkan faktor lain (aktor, sutradara, plot)
 - Tidak dapat menemukan unexpected gems yang berbeda genre namun mungkin disukai user
+
+#### Hasil Top-N Rekomendasi Content-Based Filtering
+
+**Test Case: Rekomendasi untuk film "Toy Story (1995)"**
+
+Input:
+- **Film**: Toy Story (1995)  
+- **Genre**: Adventure | Animation | Children | Comedy | Fantasy
+
+**Top-5 Film Rekomendasi:**
+
+| No | Judul Film | Genre | Similarity Score |
+|----|-----------|-------|------------------|
+| 1 | Toy Story 2 (1999) | Adventure, Animation, Children, Comedy, Fantasy | 1.000 |
+| 2 | Toy Story 3 (2010) | Adventure, Animation, Children, Comedy, Fantasy | 1.000 |
+| 3 | Monsters, Inc. (2001) | Adventure, Animation, Children, Comedy, Fantasy | 0.872 |
+| 4 | Emperor's New Groove, The (2000) | Adventure, Animation, Children, Comedy, Fantasy | 0.872 |
+| 5 | Shrek (2001) | Adventure, Animation, Children, Comedy, Fantasy, Romance | 0.834 |
+
+<img width="592" height="203" alt="image" src="https://github.com/user-attachments/assets/4243c21e-3f19-4246-9e04-220eef968edf" />
+
+**Analisis Hasil:**
+- **Precision@5 = 100%**: Semua rekomendasi adalah film animasi untuk anak-anak dengan genre yang sangat relevan
+- **Genre Consistency**: Semua film memiliki minimal 4 dari 5 genre yang sama dengan Toy Story
+- **Diversity**: Meskipun genre serupa, film-film tersebut menawarkan cerita dan karakter yang berbeda
+- **Relevance**: Toy Story 2 dan 3 adalah direct sequels dengan similarity score perfect (1.000)
+
+
 
 ---
 
@@ -417,6 +443,47 @@ Proyek ini menggunakan **Model-Based Collaborative Filtering** dengan **Neural N
 - Data sparsity: Performa menurun jika terlalu sedikit interaksi
 - Memerlukan computational resources untuk training
 - Kurang interpretable dibanding content-based ("Mengapa film ini direkomendasikan?")
+
+#### Hasil Top-N Rekomendasi Collaborative Filtering
+
+**Test Case: Rekomendasi untuk User 414**
+
+Input - Film yang disukai User 414 (Top-5 rated):
+
+| No | Judul Film | Rating |
+|----|-----------|--------|
+| 1 | Departed, The (2006) | 5.0 |
+| 2 | Dark Knight, The (2008) | 5.0 |
+| 3 | No Country for Old Men (2007) | 5.0 |
+| 4 | Truman Show, The (1998) | 5.0 |
+| 5 | Juno (2007) | 5.0 |
+
+<img width="446" height="189" alt="image" src="https://github.com/user-attachments/assets/4f64c034-8d58-48b2-adab-c162e6778707" />
+
+**Top-10 Film Rekomendasi dari Model:**
+
+| No | Judul Film | Genre | Predicted Rating |
+|----|-----------|-------|------------------|
+| 1 | Blade Runner (1982) | Action, Sci-Fi, Thriller | 4.98 |
+| 2 | Matrix, The (1999) | Action, Sci-Fi, Thriller | 4.96 |
+| 3 | Fight Club (1999) | Action, Crime, Drama, Thriller | 4.95 |
+| 4 | Shawshank Redemption, The (1994) | Crime, Drama | 4.94 |
+| 5 | Forrest Gump (1994) | Comedy, Drama, Romance, War | 4.92 |
+| 6 | Usual Suspects, The (1995) | Crime, Mystery, Thriller | 4.91 |
+| 7 | Pulp Fiction (1994) | Comedy, Crime, Drama, Thriller | 4.90 |
+| 8 | Memento (2000) | Mystery, Thriller | 4.89 |
+| 9 | American Beauty (1999) | Drama, Romance | 4.88 |
+| 10 | Prestige, The (2006) | Drama, Mystery, Sci-Fi, Thriller | 4.87 |
+
+<img width="781" height="145" alt="image" src="https://github.com/user-attachments/assets/07e4f2fa-6f2c-4092-ad99-34158ced408c" />
+
+**Analisis Hasil:**
+- Model berhasil menangkap preferensi user terhadap film-film berkualitas tinggi dengan tema mature dan complex storytelling
+- Rekomendasi mencakup berbagai genre (Thriller, Drama, Sci-Fi, Crime) sesuai dengan pola rating user
+- Model memberikan **serendipity**: Merekomendasikan film berbeda genre yang kemungkinan disukai (seperti Forrest Gump)
+- Predicted ratings tinggi (4.87-4.98) menunjukkan confidence model yang baik
+
+
 
 ---
 
